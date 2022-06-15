@@ -6,7 +6,7 @@ namespace Magic_Ayes
     public interface ITicketRepository
     {
         public IEnumerable<Ticket> GetAllTickets();
-        public Ticket GetTicket(long ticketID);
+        public Ticket GetTicket(int ticketID);
         public void UpdateTicket(Ticket ticket);
         public void CreateTicket(Ticket ticketToCreate);
         //public IEnumerable<IssueType> GetAllIssueTypes();
@@ -15,10 +15,10 @@ namespace Magic_Ayes
         public Ticket AssignTicketPriority();
         //public IEnumerable<TicketStatus> GetAllTicketStatuses();
         public Ticket AssignTicketStatus();
-        public bool IsTicketAssigned(long ticketID);
+        public bool IsTicketAssigned(int ticketID);
         public Ticket GetCurrentDate();
         public Ticket GetLastUpdatedDate();
-        public void AssignTicketTo(long ticketID);
+        public void AssignTicketTo(int ticketID);
         public void DeleteTicket(Ticket ticket);
     }
 }

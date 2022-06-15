@@ -1,1 +1,45 @@
-﻿
+﻿@model IEnumerable<Ticket>;
+
+<h2>Dashboard</h2>
+
+<div style="display: block">
+    <a href="/Ticket/CreateTicket/">Create a New Ticket</a>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Ticket ID</th>
+        <th>Subject</th>
+        <th>Description</th>
+        <th>Created</th>
+        <th>Last Updated</th>
+        <th>Engineer</th>
+        <th>Owner</th>
+        <th>Project ID</th>
+        <th>Assigned?</th>
+        <th>Status</th>
+        <th>Priority</th>
+        <th>Type</th>
+        <th>Comment</th>
+    </tr>
+
+    @foreach (var ticket in Model)
+    {
+        <tr>
+            <td><a href=/Ticket/ViewTicket/@ticket.TicketID>@ticket.TicketID</a></td>
+            <td>@ticket.Subject</td>
+            <td>@ticket.TDescription</td>
+            <td>@ticket.CreationDate</td>
+            <td>@ticket.LastUpdated</td>
+            <td>@ticket.Engineer</td>
+            <td>@ticket.Owner</td>
+            <td>@ticket.ProjectID</td>
+            <td>@ticket.IsAssigned</td>
+            <td>@ticket.TicketStatus</td>
+            <td>@ticket.TicketPriority</td>
+            <td>@ticket.IssueType</td>
+            <td>@ticket.TicketComment</td>
+        </tr>
+    }
+
+</table>

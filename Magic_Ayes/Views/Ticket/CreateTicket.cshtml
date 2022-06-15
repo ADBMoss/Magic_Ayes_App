@@ -1,0 +1,64 @@
+﻿@model Ticket
+
+<h2>Create a New Ticket</h2>
+
+@using (Html.BeginForm("InsertTicketToDatabase", "Ticket", "Post"))
+{
+    <input asp-for="TicketID" type="hidden" value="" />
+
+    <input type="text" name="Subject" class="form-control" value="" />
+    <label asp-for="Subject" class="control-label">Subject</label>
+
+    <input type="text" name="Description" class="form-control" value="" />
+    <label asp-for="TDescription" class="control-label">Description</label>
+
+    <label asp-for="CreationDate" class="control-label">Created</label>
+
+    <label asp-for="LastUpdated" class="control-label">Last Updated</label>
+
+    <input type="text" name="Engineer" class="form-control" />
+    <label asp-for="Engineer" class="control-label">Engineer</label>
+
+    <input type="text" name="Owner" class="form-control" />
+    <label asp-for="Owner" class="control-label">Owner</label>
+
+    <label asp-for="ProjectID" class="control-label">Project ID</label>
+
+    <input type="checkbox" name="Assigned" class="form-control" />
+    <label asp-for="IsAssigned" class="control-label">Assigned?</label>
+
+    @*<div class="form-group">
+            <label for="">Select Ticket Status</label>
+            <select class="form-control" name="StatusID" value="">
+                @foreach (var stat in Model.TicketStatus)
+                {
+                    <option value="@stat.StatusID">@stat.StatusID @stat.StatusName</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="">Select Ticket Priority</label>
+            <select class="form-control" name="PriorityID" value="">
+                @foreach (var priority in Model.TicketPriority)
+                {
+                    <option value="@priority.PrioiryID">@priority.PrioiryID @priority.PriorityName</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="">Select Issue Type</label>
+            <select class="form-control" name="IssueTypeID" value="">
+                @foreach (var issue in Model.IssueType)
+                {
+                    <option value="@issue.IssueTypeID">@issue.IssueTypeID @issue.TypeName</option>
+                }
+            </select>
+        </div>*@
+
+    <input type="text" name="TicketComment" class="form-control" />
+    <label asp-for="TicketComment" class="control-label">Comment</label>
+
+    <input type="submit" value="Create Ticket" class="btn btn-primary" />
+}

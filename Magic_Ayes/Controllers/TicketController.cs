@@ -43,11 +43,11 @@ namespace Magic_Ayes.Controllers
             return RedirectToAction("ViewTicket", new { id = ticket.TicketID });
         }
 
-        //public IActionResult CreateTicket()
-        //{
-        //    var tick = _repo.AssignTicketStatus();
-        //    return View(tick);
-        //}
+        public IActionResult CreateTicket()
+        {
+            var tick = _repo.AssignTicketStatus();
+            return View(tick);
+        }
 
         //public IActionResult CreateTicket2()
         //{

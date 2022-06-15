@@ -6,7 +6,7 @@ using System.Data;
 
 namespace Magic_Ayes
 {
-    public class TicketRepository
+    public class TicketRepository : ITicketRepository
     {
         private readonly IDbConnection _conn;
 
@@ -41,9 +41,9 @@ namespace Magic_Ayes
         }
 
         //Getting Single
-        public Ticket GetTicket(long id)
+        public Ticket GetTicket(int id)
         {
-            return _conn.QuerySingle<Ticket>("SELECT * FROM TICKETS WHERE @id = id", new { id = id });
+            return _conn.QuerySingle<Ticket>("SELECT * FROM TICKETS WHERE @id", new { TicketID = id });
         }
 
         //Update
@@ -107,13 +107,12 @@ namespace Magic_Ayes
         //    return ticket;
         //}
 
-        //public Ticket AssignTicketStatus()
-        //{
-        //    var ticketStatus = GetAllTicketStatuses();
-        //    var ticket = new Ticket();
-        //    ticket.TicketStatus = GetAllTicketStatuses();
-        //    return ticket;
-        //}
+        public Ticket AssignTicketStatus()
+        {
+            var ticket = new Ticket();
+            ticket.TicketStatus = "Finished";
+            return ticket;
+        }
 
 
         //public bool IsTicketAssigned(long ticketID)
@@ -147,6 +146,28 @@ namespace Magic_Ayes
         }
 
         public Ticket GetLastUpdatedDate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Ticket AssignIssueType()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Ticket AssignTicketPriority()
+        {
+            throw new NotImplementedException();
+        }
+
+        
+
+        public bool IsTicketAssigned(int ticketID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AssignTicketTo(int ticketID)
         {
             throw new NotImplementedException();
         }
